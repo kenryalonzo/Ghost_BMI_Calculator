@@ -1,0 +1,92 @@
+
+#: import hex kivy.utils.get_color_from_hex
+#: set bleu "#46ADF8"
+#: set blanc "#f1f1f1"
+#: set small dp(12)
+#: set medium dp(24)
+#: set extra dp(36)
+#: set acme "fonts/Acme.ttf"
+#: set amble_regular "fonts/amble/Regular.ttf"
+#: set amble_italic "fonts/amble/Italic.ttf"
+#: set radius_ dp(20)
+
+<LoginPage>:
+    canvas.before:
+        Color:
+            rgb: hex(bleu)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    orientation: "vertical"
+    Label:
+        canvas.before:
+            Color:
+                rgba:  0, 0, 0, 0.75
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        text: "Sign in to continue..."
+        size_hint: 1, 0.1
+        font_size: extra
+        font_name: acme
+    FloatLayout:
+        orientation: "horizontal"
+        Image:
+            source: "images/docteur_2.png"
+            pos_hint: {"x":0}
+            size_hint: 0.5, 1
+        FloatLayout:
+            size_hint: None, None
+            size: dp(285), dp(275)
+            pos_hint: {"x":0.6, "center_y":0.5}
+            canvas.before: 
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: dp(20), dp(20)
+            BoxLayout:
+                orientation: "vertical"
+                pos_hint: {"center_x":0.5, "center_y":0.5}
+                spacing: dp(35)
+                padding: dp(10), dp(30)
+                BoxLayout:
+                    orientation:"vertical"
+                    spacing: dp(10)
+                    BoxLayout:
+                        orientation:"horizontal"
+                        Label:
+                            text: "Username"
+                            color: 0, 0, 0
+                            font_size: medium
+                            font_name: acme
+                            text_size: self.size
+                            halign: "left"
+                            valign: "middle"
+                        TextInput:
+                            multiline: False   
+                            size_hint: 1, 0.5
+                            pos_hint: {"center_y": 0.5} 
+                            write_tab: False
+                    BoxLayout:
+                        orientation:"horizontal"
+                        Label:
+                            text: "Password"
+                            color: 0, 0, 0
+                            font_size: medium
+                            font_name: acme
+                            text_size: self.size
+                            halign: "left"
+                            valign: "middle"
+                        TextInput:
+                            multiline: False 
+                            size_hint: 1, 0.5 
+                            pos_hint: {"center_y": 0.5}                      
+                            write_tab: False
+                            password: True
+                Button:
+                    text:"Login"
+                    font_size: medium
+                    font_name: amble_italic
+                    size_hint: 0.9, 0.3
+                    pos_hint: {"center_x": 0.5}
+                    background_normal: "images/button_background.png"
