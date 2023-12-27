@@ -1,5 +1,5 @@
 
-<SignUpPage>:
+<UpdatePage>:
     orientation: "vertical"
     canvas.before:
         Color:
@@ -14,14 +14,14 @@
             Rectangle:
                 pos: self.pos
                 size: self.size
-        text: "Create an Account..."
+        text: "Update your informations..."
         font_size: extra
         font_name: acme
         size_hint: 1, 0.1
     FloatLayout:
         orientation: "horizontal"
         Image:
-            source: "images/docteur_2.png"
+            source: "images/linda.png"
             size_hint: 0.5, 1
             pos_hint: {"center_y": 0.53}
         FloatLayout:
@@ -161,7 +161,7 @@
                         write_tab: False
                         password: True
             Button:
-                text: "Sign Up"
+                text: "Modify"
                 background_normal: "images/button_background.png"
                 size_hint: 0.4, 0.09
                 pos_hint: {"right": 0.98, "y": 0.04}

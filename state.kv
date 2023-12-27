@@ -1,0 +1,62 @@
+
+<State>:
+    orientation: "vertical"
+    canvas.before:
+        Color:
+            rgb: hex(bleu)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Label:
+        canvas.before:
+            Color:
+                rgba: 0, 0, 0, 0.5
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        text: "Check your Health Status..."
+        font_size: extra
+        font_name: acme
+        size_hint: 1, 0.1
+    FloatLayout:
+        Image:
+            source: "images/linda.png"
+            size_hint: 0.5, 1
+        BoxLayout:
+            orientation:"vertical"
+            size_hint: 0.3, 0.4
+            pos_hint: {"center_x": 0.65, "center_y": 0.65}
+            Label:
+                text: "According to the analyzes"
+                font_name: amble_regular
+                font_size: medium
+            #     size_hint: None, None
+            #     size: dp(550), dp(200)
+                pos_hint: {"center_x":0.48, "center_y":0.75}
+                text_size: self.size
+                size_hint: None, None
+                size: dp(265), dp(70)
+                valign: "middle"
+                halign: "left"
+            #     pos_hint: {"center_x": 0.65, "center_y": 0.75}
+            Label:
+                text: "Status: "
+                font_name: amble_regular
+                font_size: middle
+                text_size: self.size
+                halign: "left"
+                valign: "middle"
+            Label:
+                text: "Cause: "
+                font_name: amble_regular
+                font_size: middle
+                text_size: self.size
+                halign: "left"
+                valign: "middle"
+            Label:
+                text: "Advice: "
+                font_name: amble_regular
+                font_size: middle
+                text_size: self.size
+                halign: "left"
+                valign: "middle"
