@@ -19,5 +19,34 @@
 #: import consult consult
 #: import state state
 
-State:
+# State:
+
+<ScreenBrowser>:
+    Screen:
+        name:"home"
+        HomeInterface:
+    Screen:
+        name:"login"
+        LoginPage:
+    Screen:
+        name:"sign up"
+        SignUpPage:
+    Screen:
+        name:"index"
+        IndexPage:
+    Screen:
+        name:"update"
+        on_pre_enter: update_page.preload_data()
+        UpdatePage:
+            id: update_page
+    Screen:
+        name:"state"
+        on_pre_enter: status.preload_data()
+        State:
+            id: status
+    Screen:
+        name:"conultation"
+        on_pre_enter: imc.preload_data()
+        ConsultBmi:
+            id: imc
 

@@ -63,10 +63,12 @@ class Data:
             user=db.search(user.user_data.pseudo==pseudo)[0]
             data = user['user_data']
             if data["mot_de_passe"] == mdp:
-                return {'status':True, 'data':data, 'msg':"Connexion Reussi"}
-            return {'status':False, 'data':{}, 'msg':"Utilisateur non trouvé"}
+                imc = user["imc"]
+                class_sante = user["sante"]
+                return {'status':True, 'data':data, 'msg':"Connexion Reussi", "sante": {'imc':imc, 'class_sante':class_sante}}
+            return {'status':False, 'data':{}, 'msg':"Utilisateur non trouvé", "sante": {'imc':None, 'class_sante':None}}
         except:
-            return {'status':False, 'data':{}, 'msg':"Utilisateur non trouvé"}  
+            return {'status':False, 'data':{}, 'msg':"Utilisateur non trouvé", "sante": {'imc':None, 'class_sante':None}}  
 
 if __name__=="__main__":  
     print(Data.get_user("rach", "secret"))

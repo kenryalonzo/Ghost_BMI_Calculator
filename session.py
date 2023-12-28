@@ -10,8 +10,11 @@ class Session():
             return data
 
         pass
+    
+    
     @classmethod
     def make_session(cls, data):
         with open("./Data/session.json","w") as file:
             json.dump(data, file)
         pass
+      

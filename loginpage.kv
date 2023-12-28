@@ -52,6 +52,7 @@
                             halign: "left"
                             valign: "middle"
                         TextInput:
+                            id: pseudo
                             multiline: False   
                             size_hint: 1, 0.5
                             pos_hint: {"center_y": 0.5} 
@@ -67,6 +68,7 @@
                             halign: "left"
                             valign: "middle"
                         TextInput:
+                            id: password
                             multiline: False 
                             size_hint: 1, 0.5 
                             pos_hint: {"center_y": 0.5}                      
@@ -79,3 +81,4 @@
                     size_hint: 0.9, 0.3
                     pos_hint: {"center_x": 0.5}
                     background_normal: "images/button_background.png"
+                    on_press: app.manage.check_credentials(pseudo.text, password.text);app.manage.current_state="login"

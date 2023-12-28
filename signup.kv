@@ -115,7 +115,7 @@
                     spacing: dp(10)
                     orientation:"horizontal"
                     TextInput:
-                        id: Taille
+                        id: taille
                         hint_text: "Size(Cm)"
                         font_name: amble_regular
                         font_size: medium
@@ -167,3 +167,4 @@
                 pos_hint: {"right": 0.98, "y": 0.04}
                 font_size: medium
                 font_name: acme
+                on_press: app.manage.check_signup(username.text, password.text, password_repeat.text, nameAndSurname.text, age.text, sexe.text, taille.text, weight.text, work.text)

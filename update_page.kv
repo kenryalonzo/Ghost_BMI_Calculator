@@ -56,6 +56,7 @@
                     TextInput:
                         id: username
                         hint_text: "Username"
+                        text: root.username
                         font_name: amble_regular
                         font_size: medium
                         text_size: self.size
@@ -71,6 +72,7 @@
                     TextInput:
                         id: nameAndSurname
                         hint_text: "Name & Surname"
+                        text: root.nameAndSurname
                         font_name: amble_regular
                         font_size: medium
                         text_size: self.size
@@ -81,6 +83,7 @@
                     TextInput:
                         id: age
                         hint_text: "Age"
+                        text: root.age
                         font_name: amble_regular
                         font_size: medium
                         text_size: self.size
@@ -91,6 +94,7 @@
                     Spinner:
                         id: sexe
                         text: "Sex"
+                        text: root.sexe
                         font_name: amble_regular
                         font_size: medium
                         text_size: self.size
@@ -103,6 +107,7 @@
                     TextInput:
                         id: work
                         hint_text: "Work"
+                        text: root.work
                         font_name: amble_regular
                         font_size: medium
                         text_size: self.size
@@ -117,6 +122,7 @@
                     TextInput:
                         id: Taille
                         hint_text: "Size(Cm)"
+                        text: root.Taille
                         font_name: amble_regular
                         font_size: medium
                         text_size: self.size
@@ -126,6 +132,7 @@
                         write_tab: False
                     TextInput:
                         id: weight
+                        text: root.weight
                         hint_text: "Weight(Kg)"
                         font_name: amble_regular
                         font_size: medium
@@ -161,9 +168,10 @@
                         write_tab: False
                         password: True
             Button:
-                text: "Modify"
+                text: "Save"
                 background_normal: "images/button_background.png"
                 size_hint: 0.4, 0.09
                 pos_hint: {"right": 0.98, "y": 0.04}
                 font_size: medium
                 font_name: acme
+                on_press: app.manage.check_update(username.text, password.text, password_repeat.text, nameAndSurname.text, age.text, sexe.text, Taille.text, weight.text, work.text)
