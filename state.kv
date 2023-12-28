@@ -25,7 +25,8 @@
         BoxLayout:
             orientation:"vertical"
             size_hint: 0.3, 0.4
-            pos_hint: {"center_x": 0.65, "center_y": 0.65}
+            pos_hint: {"center_x": 0.60, "center_y": 0.70}
+            spacing: dp(10)
             Label:
                 text: "According to the analyzes"
                 font_name: amble_regular
@@ -53,6 +54,8 @@
                 text_size: self.size
                 halign: "left"
                 valign: "middle"
+                size_hint: None, 1
+                width: dp(425)
             Label:
                 text: "Advice: "+root.conseil
                 font_name: amble_regular
@@ -60,3 +63,5 @@
                 text_size: self.size
                 halign: "left"
                 valign: "middle"
+                size_hint: None, 1
+                width: dp(425)

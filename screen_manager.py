@@ -23,10 +23,10 @@ class MyScreenManager(ScreenManager):
         Session.clear_session()
             
             
-    def check_signup(self, username, password:str, password_repeat:str, nameAndSurname, age, sexe, taille, weight, work):
+    def check_signup(self, username, password:str, password_repeat:str, nameAndSurname, age, sex, taille, poids, travail):
         
         if password != "" and password == password_repeat:
-            user = User(username,username,nameAndSurname, int(age), self.get_gender(sexe), int(taille)/100, int(weight), work)
+            user = User(username, password, nameAndSurname, int(age), self.get_gender(sex), int(taille)/100, int(poids), travail)
             data = Data(user)
             data.update()
             print("Inscription effectue")
