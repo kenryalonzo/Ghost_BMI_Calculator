@@ -7,17 +7,30 @@
             pos: self.pos
             size: self.size
     orientation: "vertical"
-    Label:
-        canvas.before:
-            Color:
-                rgba:  0, 0, 0, 0.75
-            Rectangle:
-                pos: self.pos
-                size: self.size
-        text: "Welcome to you..."
+    BoxLayout:
         size_hint: 1, 0.1
-        font_size: extra
-        font_name: acme
+        Label:
+            canvas.before:
+                Color:
+                    rgba:  0, 0, 0, 0.75
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            text: "Welcome to you..."
+            font_size: extra
+            font_name: acme
+        Button:
+            canvas.before:
+                Color:
+                    rgba:  0, 0, 0, 0.75
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            text: "Logout"
+            size_hint: 0.1, 1
+            pos_hint: {"top": 1}
+            background_normal: "images/button_background.png"
+            on_press: app.manage.transition.direction:"right";app.manage.logout_user()
     FloatLayout:
         Image:
             source: "images/linda.png"

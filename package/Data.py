@@ -47,13 +47,17 @@ class Data:
         return self.datas['imc']
     
     
-    def update(self):
+    def update(self, create: bool = False):
         db = TinyDB("./Data/datas.json")
         user = Query()
         if(len(db.search(user.user_data.pseudo == self.data['pseudo']))==0):
-            db.insert(self.datas)
-            return
-        db.update(self.datas, user.user_data.pseudo==self.data['pseudo'])
+            if create:
+                db.insert(self.datas)
+            return True
+        if not create:
+            db.update(self.datas, user.user_data.pseudo==self.data['pseudo'])
+        else:
+            return False
         
     @classmethod
     def get_user(cls, pseudo, mdp):
@@ -69,6 +73,20 @@ class Data:
             return {'status':False, 'data':{}, 'msg':"Utilisateur non trouvé", "sante": {'imc':None, 'class_sante':None}}
         except:
             return {'status':False, 'data':{}, 'msg':"Utilisateur non trouvé", "sante": {'imc':None, 'class_sante':None}}  
+        
+    
+    @classmethod
+    def get_user_with_pseudo(cls, pseudo):
+        db = TinyDB("./Data/datas.json")
+        user = Query()
+        try:
+            user=db.search(user.user_data.pseudo==pseudo)[0]
+            data = user['user_data']
+            imc = user["imc"]
+            class_sante = user["sante"]
+            return {'status':True, 'data':data, 'msg':"Connexion Reussi", "sante": {'imc':imc, 'class_sante':class_sante}}
+        except:
+            return {'status':False, 'data':{}, 'msg':"Utilisateur non trouvé", "sante": {'imc':None, 'class_sante':None}}
 
 if __name__=="__main__":  
     print(Data.get_user("rach", "secret"))

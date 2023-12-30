@@ -7,17 +7,30 @@
         Rectangle:
             pos: self.pos
             size: self.size
-    Label:
-        canvas.before:
-            Color:
-                rgba: 0, 0, 0, 0.75
-            Rectangle:
-                pos: self.pos
-                size: self.size
-        text: "Create an Account..."
-        font_size: extra
-        font_name: acme
+    BoxLayout:
         size_hint: 1, 0.1
+        Button:
+            canvas.before:
+                Color:
+                    rgba:  0, 0, 0, 0.75
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            text: "Home"
+            size_hint: 0.1, 1
+            pos_hint: {"top": 1}
+            background_normal: "images/button_background.png"
+            on_press: app.manage.transition.direction:"left";app.manage.current = "home"
+        Label:
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 0, 0.75
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            text: "Create an Account..."
+            font_size: extra
+            font_name: acme
     FloatLayout:
         orientation: "horizontal"
         Image:
@@ -167,4 +180,17 @@
                 pos_hint: {"right": 0.98, "y": 0.04}
                 font_size: medium
                 font_name: acme
-                on_press: app.manage.check_signup(username.text, password.text, password_repeat.text, nameAndSurname.text, age.text, sexe.text, taille.text, weight.text, work.text)
+                on_press: app.manage.check_signup(username.text, password.text, password_repeat.text, nameAndSurname.text, age.text, sexe.text, taille.text, weight.text, work.text);root.check_pseudo(footer)
+    Label:
+        canvas.before:
+            Color:
+                rgb: 1, 0, 0
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        text: "This nickname already exists Or the passwords do not match"
+        id: footer
+        opacity: 0
+        font_name: acme
+        font_size: medium
+        size_hint: 1, 0.07

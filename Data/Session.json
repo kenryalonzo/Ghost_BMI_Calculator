@@ -1,1 +1,1 @@
-{"status": true, "data": {"mot_de_passe": "yello", "pseudo": "ana", "nom_prenom": "Anabel Curtz", "age": 26, "sex": 1, "taille": 1.68, "poids": 69.0, "travail": "Infirmiere"}, "msg": "Connexion Reussi", "sante": {"imc": 24.45, "class_sante": 0}}
+{"status": false, "data": {"mot_de_passe": "", "pseudo": "", "nom_prenom": "", "age": null, "sex": null, "taille": null, "poids": null, "travail": "", "sante": {"imc": null, "class_sante": null}}}
